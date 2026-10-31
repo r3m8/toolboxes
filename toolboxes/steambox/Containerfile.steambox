@@ -35,6 +35,7 @@ RUN pacman -Syu \
         libbsd \
         noto-fonts-cjk \
         glibc-locales \
+        simde \
         --noconfirm && \
     pacman -S \
         steam \
