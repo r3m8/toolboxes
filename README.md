@@ -1,6 +1,9 @@
 # toolboxes
 [![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/ublue-os/toolboxes/badge)](https://scorecard.dev/viewer/?uri=github.com/ublue-os/toolboxes)
 
+> [!NOTE]
+> This is a fork of [ublue-os/toolboxes](https://github.com/ublue-os/toolboxes), maintained at [r3m8/toolboxes](https://github.com/r3m8/toolboxes). Images are published under `ghcr.io/r3m8/`.
+
 Centralized repository of containers designed for Toolbox/Distrobox with batteries included. These toolboxes strive for:
 
 - Instant launch
@@ -27,12 +30,12 @@ It is strongly recommended that either [Ptyxis](https://gitlab.gnome.org/cherger
 For Intel and AMD GPUs, the support is baked in, as the containers will install their latest available Mesa/DRI drivers.
 
 > [!NOTE]
-> For the GNOME desktop environment, you may want to replace `ghcr.io/ublue-os/steambox` in the below command with `ghcr.io/ublue-os/steambox-gnome`, which comes with `xdg-desktop-portal-gtk`.
+> For the GNOME desktop environment, you may want to replace `ghcr.io/r3m8/steambox` in the below command with `ghcr.io/r3m8/steambox-gnome`, which comes with `xdg-desktop-portal-gtk`.
 
 To create a container using SteamBox image, run this command:
 
 ```bash
-distrobox-create --unshare-netns --nvidia --image ghcr.io/ublue-os/steambox --name steambox -Y
+distrobox-create --unshare-netns --nvidia --image ghcr.io/r3m8/steambox --name steambox -Y
 ```
 
 Once the container has been created, you may optionally export the pre-installed applications to your host operating system using the following commands:
