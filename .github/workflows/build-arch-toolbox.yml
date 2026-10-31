@@ -101,9 +101,12 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           oci: false
           squash: false
+          # buildah < 1.44 needs a host bind mount for chunkah's OCI output
+          # (writable RUN bind mounts are overlay-backed since the CVE fix).
           extra-args: |
             --target=${{ matrix.base_name }} --security-opt=seccomp=unconfined
             --skip-unused-stages=false
+            --volume ${{ github.workspace }}:/run/src --security-opt=label=disable
           build-args: |
             SOURCE_DATE_EPOCH=${{ steps.epoch.outputs.epoch }}
 
