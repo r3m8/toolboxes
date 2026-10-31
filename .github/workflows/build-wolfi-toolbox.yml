@@ -18,7 +18,7 @@ concurrency:
 jobs:
   push-ghcr:
     name: Build and push image
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     permissions:
       contents: read
       packages: write
@@ -50,10 +50,15 @@ jobs:
           labels: |
             io.artifacthub.package.readme-url=https://raw.githubusercontent.com/ublue-os/boxkit/main/README.md
 
-      # Maximize build space for DX
+      # Maximize build space for DX.
+      # ublue-os/remove-unwanted-software@v9 fails on the 26.04 runner image:
+      # `apt-get remove powershell` exits 100 when the package is absent.
       - name: Maximize build space
-        uses: ublue-os/remove-unwanted-software@cc0becac701cf642c8f0a6613bbdaf5dc36b259e # v9
+        uses: jlumbroso/free-disk-space@ceedf095f4ec1a097402bc6bd80831f2e1a6fde6 # v2.0.0
         if: matrix.image_name == 'wolfi-dx-toolbox'
+        with:
+          preinstalled-runtimes: false
+          swap-storage: false
 
       # Build image using Buildah action
       - name: Build Image
