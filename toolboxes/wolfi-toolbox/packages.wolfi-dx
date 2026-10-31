@@ -6,7 +6,7 @@ expat
 gcc
 glibc-dev
 gmp
-go
+go-1.27
 isl
 libbrotlicommon1
 libbrotlidec1

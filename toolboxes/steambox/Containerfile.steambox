@@ -19,7 +19,6 @@ RUN pacman -Syu \
         lib32-pipewire \
         lib32-pipewire-jack \
         lib32-libpulse \
-        lib32-openal \
         xdg-desktop-portal-kde \
         vim \
         nano \
@@ -59,12 +58,13 @@ RUN useradd -m --shell=/bin/bash build && usermod -L build && \
 USER build
 WORKDIR /home/build
 RUN paru -S \
-        aur/protontricks \
+        protontricks \
         aur/vkbasalt \
         aur/lib32-vkbasalt \
         aur/obs-vkcapture-git \
         aur/lib32-obs-vkcapture-git \
         aur/lib32-gperftools \
+        aur/lib32-openal \
         aur/steamcmd \
         --noconfirm
 USER root
