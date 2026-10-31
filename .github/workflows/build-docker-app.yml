@@ -92,6 +92,7 @@ jobs:
         env:
           TAGS: ${{ steps.build_image.outputs.digest }}
           COSIGN_EXPERIMENTAL: false
+          COSIGN_PASSWORD: ""
           COSIGN_PRIVATE_KEY: ${{ secrets.SIGNING_SECRET }}
 
       - name: Echo outputs
